@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+}
+.container {
+  display: grid;
+}
+header {
+  grid-area: header;
+  background-color: rgb(23, 23, 23);
+  color: white;
+  display: flex;
+  justify-content: start;
+  padding: 15px;
+}
+.logo {
+  opacity: 0;
+  animation: fade-in 1s ease-in forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo img {
+  width: 20%;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    height: 200vh;
+    grid-template-areas:
+      "header header"
+      ". .";
+    grid-template-rows: 10% 90%;
+    grid-template-columns: 2fr 13fr;
+  }
+}
