@@ -292,10 +292,7 @@ footer {
   .portada {
     display: block;
   }
-  .boton_ofertas {
-    display: none;
-  }
-  .boton_preventas {
+  .portada a {
     display: none;
   }
   .portada_title {
@@ -318,10 +315,6 @@ footer {
   footer {
     border: 1px solid white;
     border-top: none;
-  }
-  .reciente {
-  }
-  .mas_vendido {
   }
   .container {
     grid-template-areas:
