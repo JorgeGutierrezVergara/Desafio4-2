@@ -1,26 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap");
 * {
   margin: 0;
+  font-family: "Playfair", serif;
+}
+body {
+  background-color: rgb(23, 23, 23);
 }
 .container {
   display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "back"
+    "reciente"
+    "mas_vendido"
+    "ofertas"
+    "preventa"
+    "footer ";
+  grid-template-rows: auto auto auto auto auto auto auto auto;
 }
 header {
   grid-area: header;
   background-color: rgb(23, 23, 23);
   color: white;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   padding: 15px;
 }
+
 .logo {
   opacity: 0;
   animation: fade-in 1s ease-in forwards;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.logo img {
-  width: 20%;
 }
 
 @keyframes fade-in {
@@ -32,13 +45,280 @@ header {
   }
 }
 
-@media (max-width: 576px) {
+.logo img {
+  width: 12%;
+}
+
+.navbar {
+  border: 1px solid white;
+  background-color: rgb(23, 23, 23);
+  grid-area: nav;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.navbar button {
+  background-color: rgb(23, 23, 23);
+  border: none;
+  color: white;
+  padding: 10px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 0.4s;
+  font-size: 16px;
+}
+
+.navbar button:hover {
+  background-color: white;
+  color: rgb(23, 23, 23);
+}
+
+.portada {
+  grid-area: back;
+  background-image: url(./img/background.jpg);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  opacity: 0;
+  animation: fade-in 1s ease-in forwards;
+}
+
+.portada button {
+  height: 10rem;
+  width: 9rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin: 30px;
+  font-weight: 800;
+  font-size: large;
+  border: 2px solid black;
+  transition-duration: 0.4s;
+}
+
+.portada button:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.portada_title {
+  display: none;
+}
+
+.reciente {
+  grid-area: reciente;
+  background-color: rgb(23, 23, 23);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+  opacity: 0;
+  animation: fade-in 1s ease-in forwards;
+  animation-delay: 0.3s;
+}
+
+.card {
+  width: 250px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 25px;
+  padding: 10px;
+  border: 1px solid white;
+  transition: transform 0.2s;
+}
+
+.card img {
+  width: 60%;
+  filter: grayscale(100%);
+}
+
+.card:hover {
+  transform: scale(1.2);
+}
+
+.card:hover img {
+  filter: none;
+}
+
+.mas_vendido {
+  grid-area: mas_vendido;
+  background-color: rgb(23, 23, 23);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+  opacity: 0;
+  animation: fade-in 1s ease-in forwards;
+  animation-delay: 0.3s;
+}
+
+.ofertas {
+  grid-area: ofertas;
+  background-image: url(./img/ofertas_back.jpg);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+  opacity: 0;
+  animation: fade-in 1s ease-in forwards;
+  animation-delay: 0.3s;
+}
+
+.ofertas h2 {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+.card_o {
+  width: 250px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 25px;
+  padding: 10px;
+  border: 1px solid #b1afaf;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  transition: transform 0.2s;
+}
+
+.card_o img {
+  width: 60%;
+  filter: grayscale(100%);
+}
+
+.card_o:hover {
+  transform: scale(1.2);
+}
+
+.card_o:hover img {
+  filter: none;
+}
+
+.precio_antiguo {
+  text-decoration: line-through;
+}
+
+.preventa {
+  grid-area: preventa;
+  background-image: url(./img/masvendidos_back.jpg);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+  opacity: 0;
+  animation: fade-in 1s ease-in forwards;
+  animation-delay: 0.3s;
+}
+
+.preventa h2 {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+.card2,
+.card4 {
+  display: none;
+}
+
+footer {
+  grid-area: footer;
+  background-color: rgb(23, 23, 23);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+@media (min-width: 576px) {
+  .portada {
+    display: none;
+  }
+  .card2 {
+    display: block;
+  }
+  .card4 {
+    display: block;
+  }
+  .preventa {
+    background-size: auto 100%;
+    border-left: 1px solid black;
+  }
+  .ofertas {
+    background-size: auto 100%;
+    border-right: 1px solid black;
+  }
   .container {
-    height: 200vh;
     grid-template-areas:
       "header header"
-      ". .";
-    grid-template-rows: 10% 90%;
-    grid-template-columns: 2fr 13fr;
+      "nav nav"
+      "reciente mas_vendido"
+      "ofertas preventa"
+      "ofertas preventa"
+      "footer footer";
+    grid-template-rows: auto auto auto auto auto auto auto auto;
+  }
+}
+@media (min-width: 992px) {
+  header {
+    border: 1px solid white;
+    border-bottom: none;
+  }
+  .portada {
+    display: block;
+  }
+  .boton_ofertas {
+    display: none;
+  }
+  .boton_preventas {
+    display: none;
+  }
+  .portada_title {
+    display: flex;
+    justify-content: center;
+    transform: translate(80px, 30px);
+    color: white;
+  }
+  .logo_title {
+    display: none;
+  }
+  .navbar {
+    flex-direction: column;
+    border-top: none;
+    border-bottom: none;
+  }
+  .logo img {
+    width: 50%;
+  }
+  footer {
+    border: 1px solid white;
+    border-top: none;
+  }
+  .reciente {
+  }
+  .mas_vendido {
+  }
+  .container {
+    grid-template-areas:
+      "header back back"
+      "nav reciente mas_vendido"
+      "nav ofertas preventa"
+      "footer ofertas preventa";
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 2fr 7fr 7fr;
   }
 }
